@@ -113,13 +113,20 @@
     .stop p { margin: 0 0 .9rem; max-width: 38em; }
     .stop nav { display: flex; flex-wrap: wrap; gap: .5rem; }
     .stop nav a {
-      display: inline-block; padding: .4rem .85rem; border-radius: 999px; text-decoration: none;
+      display: inline-flex; align-items: center; gap: .5rem; height: 40px; padding-inline: 1rem;
+      border-radius: 999px; text-decoration: none;
       font-weight: 600; font-size: .95rem; line-height: 1.25;
       color: var(--ink); background: var(--paper); border: 1.5px solid var(--rule);
     }
     .stop nav a:hover { border-color: var(--ink); }
-    .stop nav a.primary { color: var(--paper); background: var(--dot, var(--ink)); border-color: var(--dot, var(--ink)); }
-    .stop nav a.primary:hover { filter: brightness(1.1); }
+    /* Store badges, same look as transit-web's AppPromo: 40px pill, masked logo. */
+    .stop nav a.store, .stop nav a.website { color: var(--paper); background: var(--dot); border-color: var(--dot); }
+    .stop nav a.store:hover, .stop nav a.website:hover { filter: brightness(1.1); }
+    .stop nav a.website { color: var(--bg); background: var(--ink); border-color: var(--ink); }
+    .stop nav .logo {
+      width: 18px; height: 18px; background: currentColor;
+      -webkit-mask: var(--logo) center / contain no-repeat; mask: var(--logo) center / contain no-repeat;
+    }
 
     .transit { --dot: var(--transit); }
     .firma   { --dot: var(--firma); }
@@ -164,8 +171,9 @@
           <p class="platforms">Android e iPhone</p>
           <p>Tiempos de llegada de EMT, Metro, Cercanías e interurbanos, planos de la red, horarios, planificador de rutas y lectura de tu tarjeta de transporte por NFC. Se configura para Madrid o para València.</p>
           <nav>
-            <a class="primary" href="https://play.google.com/store/apps/details?id=com.welbits.interurbanosmadrid">Google Play</a>
-            <a class="primary" href="https://apps.apple.com/es/app/id928934908">App Store</a>
+            <a class="store" href="https://play.google.com/store/apps/details?id=com.welbits.interurbanosmadrid"><span class="logo" style="--logo: url(assets/logo_android.svg)"></span>Google Play</a>
+            <a class="store" href="https://apps.apple.com/es/app/id928934908"><span class="logo" style="--logo: url(assets/logo_apple.svg)"></span>App Store</a>
+            <a class="website" href="https://transit.welbits.com"><span class="logo" style="--logo: url(assets/logo_web.svg)"></span>Web</a>
             <a href="privacy-policies/transit.html">Política de privacidad</a>
           </nav>
         </div>
@@ -178,9 +186,9 @@
           <p class="platforms">Mac, iPhone, iPad y Android</p>
           <p>Firma PDF y completa trámites compatibles con AutoFirma con tu certificado digital, sin Java. En el iPhone también te identificas y firmas acercando el DNIe por NFC, sin lector.</p>
           <nav>
-            <a class="primary" href="https://firmafacil.app">firmafacil.app</a>
-            <a href="https://apps.apple.com/es/app/id6794884262">App Store</a>
-            <a href="https://play.google.com/store/apps/details?id=com.welbits.easysign">Google Play</a>
+            <a class="store" href="https://apps.apple.com/es/app/id6794884262"><span class="logo" style="--logo: url(assets/logo_apple.svg)"></span>App Store</a>
+            <a class="store" href="https://play.google.com/store/apps/details?id=com.welbits.easysign"><span class="logo" style="--logo: url(assets/logo_android.svg)"></span>Google Play</a>
+            <a class="website" href="https://firmafacil.app"><span class="logo" style="--logo: url(assets/logo_web.svg)"></span>Web</a>
             <a href="https://firmafacil.app/privacy">Política de privacidad</a>
           </nav>
         </div>
@@ -193,7 +201,7 @@
           <p class="platforms">Android</p>
           <p>Comparte las apps instaladas en tu móvil como archivos APK, por Bluetooth, correo o cualquier otra app.</p>
           <nav>
-            <a class="primary" href="https://play.google.com/store/apps/details?id=com.pilasvacias.apksender">Google Play</a>
+            <a class="store" href="https://play.google.com/store/apps/details?id=com.pilasvacias.apksender"><span class="logo" style="--logo: url(assets/logo_android.svg)"></span>Google Play</a>
             <a href="privacy-policies/appsharing-android.html">Política de privacidad</a>
           </nav>
         </div>
